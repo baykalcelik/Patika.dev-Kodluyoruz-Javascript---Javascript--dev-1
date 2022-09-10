@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        body{
+            background-color: black;
+            color:rgb(114, 44, 4);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            font-family: 'Open Sans', sans-serif;
+
+        }
+
+        .header{
+            font-size: 3rem;
+            
+        }
+
+        .lightText{
+            color:rgb(212, 104, 41);
+
+        }
+
+        .darkText{
+            color:rgb(114, 44, 4);
+
+        }
+
+        .fontBuyuk{
+            font-size: 2.2rem;
+        }
+        
+
+        #username{
+            color:cyan;
+            font-style: italic;
+            margin: 1rem;
+
+        }
+
+        #zaman{
+            font-size: 2rem;
+            font-weight: 200;
+            text-shadow: rgba(50, 236, 236, 0.5) 3px 3px;
+            color:yellow;
+        }
+
+        #gun{
+            color:crimson;
+            text-decoration: dotted;
+        }
+    </style>
+    <title>Javascript - Ödev 1</title>
+</head>
+<body>
+        <h1 class="header lightText">KODLUYORUZ</h1>
+        <h2>Merhaba,<span id="username"></span> Hoşgeldin !</h2>
+        <h2 id="tarih"><span id="zaman">00:00:00</span> <span id="gun">Day</span></h2>
+        <h2 class="lastLine">tarihinde <span class="lightText fontBuyuk">Kodluyoruz Frontend Web Development Patikası</span>'nın Javascript Bölümü 1. Ödevdesiniz.</h2>
+
+
+    <script>
+        let username = prompt('Lütfen adınızı giriniz !');
+
+        document.getElementById('username').textContent = username;
+        let saat = document.getElementById('zaman');
+        let day = document.getElementById('gun');
+        // let tr = new Date();
+        // saat.innerText = tr.getHours() + ":" + tr.getMinutes() + ":" + tr.getSeconds();
+
+        setInterval(()=>{
+            let tr = new Date();
+            saat.innerText = tr.getHours().toString().padStart(2,0) + ":" + tr.getMinutes().toString().padStart(2,0) + ":" + tr.getSeconds().toString().padStart(2,0);
+            day.innerText = tr.getDay() ==  6 ? 'Cumartesi' :  tr.getDay() ==  7 ? 'Pazar' : tr.getDay() ==  1 ? 'Pazartesi' : tr.getDay() ==  2 ? 'Salı' : tr.getDay() ==  3 ? 'Çarşamba' : tr.getDay() ==  4 ? 'Perşembe' : tr.getDay() ==  5 ? 'Cuma' :  '';
+
+        }, 1000);
+
+    </script>
+</body>
+</html>
